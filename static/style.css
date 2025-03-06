@@ -147,3 +147,102 @@ ul {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+  .resume {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .resume .column {
+    margin-bottom: 2rem;
+  }
+
+  .project {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile img {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .section1 > ul {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+
+  .list-container {
+    flex-direction: column;
+  }
+
+  .list-container > li {
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .resume {
+    padding: 1rem;
+  }
+
+  .project {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+  }
+
+  .profile p {
+    font-size: 1rem;
+  }
+
+  .contact li {
+    font-size: 0.7rem;
+  }
+}
