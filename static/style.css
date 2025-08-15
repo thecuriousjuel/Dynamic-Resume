@@ -2,6 +2,11 @@
 Portfolio Figma-inspired layout and style
 */
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+@import url("skills.css");
+@import url("projects.css");
+@import url("certificates.css");
+@import url("experience.css");
+@import url("whyme.css");
 :root {
   --accent: #6c63ff;
   --accent-dark: #4b47b5;
@@ -151,6 +156,7 @@ body.theme-animating .theme-toggle::after {
   display: flex;
   min-height: 100vh;
   margin-top: 3.5rem;
+  background: var(--background);
 }
 body[data-theme="dark"] .navbar {
   background: var(--surface);
@@ -502,4 +508,66 @@ body[data-theme="dark"] .whyme-box {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-dark);
+}
+
+/* Layout for new section alignment */
+.sections-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.sections-row > .section {
+  flex: 1 1 0;
+  min-width: 320px;
+}
+
+@media (max-width: 900px) {
+  .sections-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
+
+/* Section box style for experience, certificates, projects, whyme */
+.box-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box-item {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  min-width: 260px;
+  max-width: 370px;
+  flex: 1 1 320px;
+  transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.box-item:hover, .box-item:focus {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(108,99,255,0.18), 0 2px 8px rgba(44,62,80,0.08);
+  transform: scale(1.04);
+  z-index: 2;
+}
+.box-item .project-links, .box-item .certificate-link {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.box-item .project-links a, .box-item .certificate-link a {
+  margin: 0;
 }
