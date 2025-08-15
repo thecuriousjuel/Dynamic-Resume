@@ -539,26 +539,26 @@ body[data-theme="dark"] .whyme-box {
   padding: 0;
   list-style: none;
 }
-.box-item {
-  background: var(--surface);
-  color: var(--text);
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
-  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+.box-item, .whyme-box, .experience-section .box-item, .certificates-section .box-item, .projects-section .box-item {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(108,99,255,0.18);
+  padding: 0.7rem 1rem 0.7rem 1rem;
   font-size: 1rem;
   font-weight: 500;
-  min-width: 260px;
-  max-width: 370px;
-  flex: 1 1 320px;
+  min-width: 180px;
+  max-width: 340px;
+  flex: 1 1 220px;
   transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
   text-align: left;
   margin-bottom: 0.5rem;
   position: relative;
 }
-.box-item:hover, .box-item:focus {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 8px 32px rgba(108,99,255,0.18), 0 2px 8px rgba(44,62,80,0.08);
+.box-item:hover, .box-item:focus, .whyme-box:hover, .whyme-box:focus, .experience-section .box-item:hover, .certificates-section .box-item:hover, .projects-section .box-item:hover {
+  background: var(--accent-dark) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 32px rgba(108,99,255,0.28);
   transform: scale(1.04);
   z-index: 2;
 }
