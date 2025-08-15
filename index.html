@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="../static/style.css" rel="stylesheet">
+  <title>Biswajit Basak's Resume</title>
+  <script>
+    // Dark mode logic: set theme on load, toggle, and save preference
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+    }
+    function getPreferredTheme() {
+      return localStorage.getItem('theme') || 'light';
+    }
+    function toggleTheme() {
+      const current = document.body.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      setTheme(next);
+      localStorage.setItem('theme', next);
+      document.getElementById('theme-toggle-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      const theme = getPreferredTheme();
+      setTheme(theme);
+      // Set correct icon
+      setTimeout(function() {
+        var btn = document.getElementById('theme-toggle-icon');
+        if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }, 0);
+    });
+  </script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#whyme">Why Me?</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#skills">Skills & Interests</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+      <span id="theme-toggle-icon">🌙</span>
+    </button>
+  </nav>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <img class="profile-img" alt="" src="/static/images/photo.jpg">
+      <h1>Biswajit Basak</h1>
+      <div class="subtitle">Computer Science Graduate | AI ML Enthusiast | Pythoneer</div>
+      <ul class="contact-list">
+        <li><a class="material-link profile-link" href="mailto:juelbasak@gmail.com"><img src="/static/images/mail-64.png" alt="Email"></a></li>
+        <li><a class="material-link profile-link" href="https://www.linkedin.com/in/thecuriousjuel" target="_blank"><img src="/static/images/linkedin-5-64.png" alt="LinkedIn"></a></li>
+        <li><a class="material-link profile-link" href="https://github.com/thecuriousjuel" target="_blank"><img src="/static/images/github-10-64.png" alt="GitHub"></a></li>
+        <li><a class="material-link profile-link" href="https://www.leetcode.com/thecuriousjuel" target="_blank"><img src="/static/images/kaggle.png" alt="LeetCode"></a></li>
+        <li><a class="material-link profile-link" href="https://www.youtube.com/@juelbasak" target="_blank"><img src="/static/images/kaggle.png" alt="YouTube"></a></li>
+      </ul>
+    </aside>
+    <main class="content">
+      <section class="section fade-section" id="about">
+        <h2>About Me</h2>
+        <p style="color:var(--text); font-size:1.1rem;">
+          Passionate software engineer with a knack for building impactful digital solutions. I thrive on solving real-world problems, collaborating with diverse teams, and continuously learning new technologies. My journey is driven by curiosity and a commitment to excellence.
+        </p>
+      </section>
+      <section class="section fade-section" id="experience">
+        <h2>Experience</h2>
+        <ul class="timeline">
+          
+          <li class="event">
+            <span class="duration">Oct-2019 - Mar-2021</span>
+            <div class="event-content">
+              <h3>Project Engineer</h3>
+              <p><em>Wipro, Chennai</em></p>
+              <p>
+                Developed scalable web applications and led cross-functional teams to deliver high-quality products on time. Enhanced user experience and optimized backend performance, resulting in increased customer satisfaction and business growth.
+              </p>
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Jan-2022 - Aug-2022</span>
+            <div class="event-content">
+              <h3>Analyst</h3>
+              <p><em>Deloitte, Bengaluru</em></p>
+              <p>
+                Developed scalable web applications and led cross-functional teams to deliver high-quality products on time. Enhanced user experience and optimized backend performance, resulting in increased customer satisfaction and business growth.
+              </p>
+            </div>
+          </li>
+          
+        </ul>
+      </section>
+      <section class="section fade-section" id="education">
+        <h2>Education</h2>
+        <ul class="timeline">
+          
+          <li class="event">
+            <span class="duration">Sep-2015 - May-2019</span>
+            <div class="event-content">
+              <h3>B. Tech in Computer Science and Engineering</h3>
+              <p><em>M. S. Ramaiah University of Applied Sciences</em></p>
+            </div>
+          </li>
+          
+        </ul>
+      </section>
+      <section class="section fade-section" id="whyme">
+        <h2>Why Me?</h2>
+        <ul class="whyme-boxes">
+          <li class="whyme-box">Proven track record of delivering high-quality solutions on time and exceeding expectations.</li>
+          <li class="whyme-box">Strong analytical and problem-solving skills, with a focus on innovation and efficiency.</li>
+          <li class="whyme-box">Excellent communication and collaboration abilities, thriving in team environments.</li>
+          <li class="whyme-box">Continuous learner, always adapting to new technologies and industry trends.</li>
+          <li class="whyme-box">Dedicated to creating value for clients and stakeholders through impactful work.</li>
+        </ul>
+      </section>
+      <section class="section fade-section" id="certificates">
+        <h2>Certificates</h2>
+        <ul class="timeline">
+          
+          <li class="event">
+            <span class="duration">Dec-2019 - Jan-2020</span>
+            <div class="event-content">
+              <h3>AI ML Certification</h3>
+              <h3>Wipro</h3>
+              <p>Online</p>
+              <p>Completed AI ML Certification from Wipro, which included Python Programming assignments and Machine Learning Assignments</p>
+              <p><a href="https://github.com/JuelBasak/Certificates/blob/master/Wipro/AI%20App%20Developer%20program_20122958.pdf" class="material-link" target="_blank">Certificate Link</a></p>
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Mar-2020 - Apr-2020</span>
+            <div class="event-content">
+              <h3>Machine Learning Certificate</h3>
+              <h3>365DataScience</h3>
+              <p>Online</p>
+              <p>Completed Multiple certifications on Python, Statistics, Mathematics, Deep Learning etc.</p>
+              <p><a href="https://github.com/JuelBasak/Certificates/tree/master/365%20Data%20Science" class="material-link" target="_blank">Certificate Link</a></p>
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Sep-2017 - Sep-2017</span>
+            <div class="event-content">
+              <h3>IoT using Arduino</h3>
+              <h3>Skify Labs</h3>
+              <p>Bangalore</p>
+              <p>Build an IOT Device using breadboard and arduino to measure the nearby temperature and upload the data using the wifi module to a server.</p>
+              <p><a href="https://github.com/JuelBasak/Certificates/blob/master/SkiFy%20labs%20Certificate.pdf" class="material-link" target="_blank">Certificate Link</a></p>
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Feb-2021 - Feb-2022</span>
+            <div class="event-content">
+              <h3>MLDL iNeuron Certificate</h3>
+              <h3>iNeuron</h3>
+              <p>Online</p>
+              <p>Completed an Intensive Machine Learning Course and have Built and Deployed Multiple Projects on the Cloud.</p>
+              <p><a href="https://github.com/thecuriousjuel/Certificates/blob/master/MLDL%20iNeuron%20Certificate.pdf" class="material-link" target="_blank">Certificate Link</a></p>
+            </div>
+          </li>
+          
+        </ul>
+      </section>
+      <section class="section fade-section" id="skills">
+        <h2>Skills & Interests</h2>
+        <div class="skills-interests">
+          <div>
+            <h3>Skills</h3>
+            <div class="skills-grid">
+              
+              <div class="skill-box"><img src="/static/images/" alt="Python " title="Python "></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="AWS" title="AWS"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="MySQL" title="MySQL"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Flask" title="Flask"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="HTML" title="HTML"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="CSS" title="CSS"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Javascript" title="Javascript"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Bootstrap" title="Bootstrap"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Git/Github" title="Git/Github"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Linux Familiarity" title="Linux Familiarity"></div>
+              
+            </div>
+          </div>
+          <div>
+            <h3>Interests</h3>
+            <div class="skills-grid">
+              
+              <div class="skill-box"><img src="/static/images/" alt="Programming" title="Programming"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Gaming" title="Gaming"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Making Videos" title="Making Videos"></div>
+              
+              <div class="skill-box"><img src="/static/images/" alt="Exploring New Places" title="Exploring New Places"></div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section fade-section" id="projects">
+        <h2>Projects</h2>
+        <ul class="timeline">
+          
+          <li class="event">
+            <span class="duration">Jan-2022 - Jan-2022</span>
+            <div class="event-content">
+              <h3>Football Player Overall Score Prediction</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              <p><a href="https://www.youtube.com/playlist?list=PLcArXHK8v0lYU74w7Nt8boYWVF7uzYR4m" class="material-link" target="_blank">YouTube</a></p>
+              
+              
+              <p><a href="https://thecuriousjuel-football-prediction.onrender.com" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/Machine-Learning-Project-iNeuron" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Sep-2021 - Sep-2021</span>
+            <div class="event-content">
+              <h3>Income Prediction using XGBoost Algorithm</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              <p><a href="https://www.youtube.com/playlist?list=PLcArXHK8v0lYoelga6jPcjENUS3tIJZob" class="material-link" target="_blank">YouTube</a></p>
+              
+              
+              <p><a href="https://thecuriousjuel-income-prediction-xgboost.onrender.com" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/income-Prediction" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Sep-2021 - Sep-2021</span>
+            <div class="event-content">
+              <h3>Boston Housing Price Prediction using Random Forest</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              <p><a href="https://thecuriousjuel-boston-housing-prediction.onrender.com" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/BostonHousing-RandomForest" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Aug-2021 - Aug-2021</span>
+            <div class="event-content">
+              <h3>Titanic Survival Prediction using Decision Tree Algorithm</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              <p><a href="https://thecuriousjuel-titanic-survival.onrender.com/" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/DecisionTreeOnTitanic" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Aug-2021 - Aug-2021</span>
+            <div class="event-content">
+              <h3>Red Wine Quality Prediction using Decision Tree Algorithm</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              <p><a href="https://thecuriousjuel-redwine-quality-prediction.onrender.com/" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/RedWineQualityPrediction" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Jul-2021 - Jul-2021</span>
+            <div class="event-content">
+              <h3>Woman Affair Classification using Logistic Regression</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              <p><a href="https://thecuriousjuel-woman-affair-prediction.onrender.com" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/Woman-Affair-LogisticRegression" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Jul-2021 - Jul-2021</span>
+            <div class="event-content">
+              <h3>Boston Housing Price Prediction using Linear Regression</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              <p><a href="https://thecuriousjuel-boston-prediction-linear.onrender.com" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/BostonHousingPrice" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Jun-2021 - Jun-2021</span>
+            <div class="event-content">
+              <h3>Webscapper built using Python&#39;s Flask Framework using Selenium</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/MonsterIndia-Web-Scrapper" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Jun-2021 - Jun-2021</span>
+            <div class="event-content">
+              <h3>Webscrapper built using Python&#39;s Flask Framework</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              <p><a href="https://thecuriousjuel-flipkart-scrapper.onrender.com" class="material-link" target="_blank">Live Demo</a></p>
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/Flipkart-Scrapper-Heroku" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Nov-2019 - Dec-2019</span>
+            <div class="event-content">
+              <h3>Built an ATM Clone as POC at Wipro</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/ATM_ProductBacklog" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Feb-2019 - May-2019</span>
+            <div class="event-content">
+              <h3>Analysis of Trivial and Bio-inspired Algorithms</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              <p><a href="https://youtu.be/DQRaHtktKY4" class="material-link" target="_blank">YouTube</a></p>
+              
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/Final-Project-B.Tech" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Feb-2018 - May-2018</span>
+            <div class="event-content">
+              <h3>Design and development of an application for Election Analysis and Voting</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              <p><a href="https://youtu.be/F3ZEAlkvHMs" class="material-link" target="_blank">YouTube</a></p>
+              
+              
+              
+              <p><a href="https://github.com/thecuriousjuel/Mini-Project-Btech" class="material-link" target="_blank">GitHub</a></p>
+              
+            </div>
+          </li>
+          
+          <li class="event">
+            <span class="duration">Sep-2017 - Sep-2017</span>
+            <div class="event-content">
+              <h3>Monitor Temperature using IOT Devices</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              
+              
+              
+            </div>
+          </li>
+          
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script>
+    // Smooth scroll for navbar links
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+    // Fade in/out animation on scroll
+    function handleFadeSections() {
+      const sections = document.querySelectorAll('.fade-section');
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < triggerBottom && rect.bottom > 0) {
+          section.classList.add('visible');
+          section.classList.remove('invisible');
+        } else {
+          section.classList.remove('visible');
+          section.classList.add('invisible');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleFadeSections);
+    window.addEventListener('DOMContentLoaded', handleFadeSections);
+  </script>
+</body>
+
+</html>
