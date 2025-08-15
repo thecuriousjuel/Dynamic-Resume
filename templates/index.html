@@ -7,192 +7,191 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <link href="../static/style.css" rel="stylesheet">
   <title>Biswajit Basak's Resume</title>
+  <script>
+    // Dark mode logic: set theme on load, toggle, and save preference
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+    }
+    function getPreferredTheme() {
+      return localStorage.getItem('theme') || 'light';
+    }
+    function toggleTheme() {
+      const current = document.body.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      setTheme(next);
+      localStorage.setItem('theme', next);
+      document.getElementById('theme-toggle-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      const theme = getPreferredTheme();
+      setTheme(theme);
+      // Set correct icon
+      setTimeout(function() {
+        var btn = document.getElementById('theme-toggle-icon');
+        if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }, 0);
+    });
+  </script>
 </head>
 
 <body>
-  <div class="resume">
-    <div class="column">
-      <section class="profile">
-        <h1>{{main_dict['ABOUT_ME'][0]['NAME']}}</h1>
-        <p><em>{{main_dict['ABOUT_ME'][0]['HEADING']}}</em></p>
-        <img alt="" src="/static/images/photo.jpg">
-      </section>
-
-      <section class="section1">
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span id="theme-toggle-icon">🌙</span>
+  </button>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#whyme">Why Me?</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#skills">Skills & Interests</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <img class="profile-img" alt="" src="/static/images/photo.jpg">
+      <h1>{{main_dict['ABOUT_ME'][0]['NAME']}}</h1>
+      <div class="subtitle">{{main_dict['ABOUT_ME'][0]['HEADING']}}</div>
+      <ul class="contact-list">
+        <li><img src="/static/images/mail-64.png" alt="Email"> <a href="mailto:{{main_dict['ABOUT_ME'][0]['EMAIL']}}">{{main_dict['ABOUT_ME'][0]['EMAIL']}}</a></li>
+        <li><img src="/static/images/linkedin-5-64.png" alt="LinkedIn"> <a href="https://www.{{main_dict['ABOUT_ME'][0]['LINKEDIN']}}" target="_blank">{{main_dict['ABOUT_ME'][0]['LINKEDIN']}}</a></li>
+        <li><img src="/static/images/github-10-64.png" alt="GitHub"> <a href="https://{{main_dict['ABOUT_ME'][0]['GIT']}}" target="_blank">{{main_dict['ABOUT_ME'][0]['GIT']}}</a></li>
+        <li><img src="/static/images/kaggle.png" alt="LeetCode"> <a href="https://www.{{main_dict['ABOUT_ME'][0]['LEETCODE']}}" target="_blank">{{main_dict['ABOUT_ME'][0]['LEETCODE']}}</a></li>
+        <li><img src="/static/images/kaggle.png" alt="YouTube"> <a href="https://www.{{main_dict['ABOUT_ME'][0]['YOUTUBE']}}" target="_blank">{{main_dict['ABOUT_ME'][0]['YOUTUBE']}}</a></li>
+      </ul>
+    </aside>
+    <main class="content">
+      <section class="section fade-section" id="about">
         <h2>About Me</h2>
-        <section class="objectives">
-          <p>{{main_dict['ABOUT_ME'][0]['DESCRIPTION']}}</p>
-        </section>
-
-        <br><br><br>
-
-        <section class="EDUCATION">
-          <h2>Education</h2>
-          <ul class="timeline">
-            {% for education in main_dict['EDUCATION'] %}
-            <li class="event">
-              <span class="duration">From {{education['START_DATE']}} To {{education['END_DATE']}}
-                ({{education['DURATION']}}) </span>
-              <div class="content">
-                <h3>{{education['DEGREE']}}</h3>
-                <p><em>{{education['UNIVERSITY']}}</em></p>
-                <p>CGPA / Percentage: {{education['SCORE']}}</p>
-              </div>
-            </li>
-            {% endfor %}
-          </ul>
-        </section>
-
-        <section class="experience">
-          <h2>experience</h2>
-          <ul class="timeline">
-
-            {% for i in main_dict['EXPERIENCE'] %}
-
-            <li class="event">
-              <span class="duration">From {{i['START_DATE']}} To {{i['END_DATE']}} ({{i['DURATION']}})</span>
-              <div class="content">
-                <h3>{{i['DESIGNATION']}}</h3>
-                <p><em>{{i['COMPANY']}}, {{i['LOCATION']}}</em></p>
-                <p>
-                  {{i['DETAILS']}}
-                </p>
-              </div>
-            </li>
-            {% endfor %}
-
-          </ul>
-        </section>
+        <p style="color:var(--text); font-size:1.1rem;">
+          Passionate software engineer with a knack for building impactful digital solutions. I thrive on solving real-world problems, collaborating with diverse teams, and continuously learning new technologies. My journey is driven by curiosity and a commitment to excellence.
+        </p>
       </section>
-    </div>
-
-    <div class="column">
-      <section class="contact">
-        <h2>Profile</h2>
-        <br>
-        <ul>
-
-          <li><a href="mailto:{{main_dict['ABOUT_ME'][0]['EMAIL']}}">{{main_dict['ABOUT_ME'][0]['EMAIL']}}</a>
-            <img alt="" src="/static/images/mail-64.png">
+      <section class="section fade-section" id="experience">
+        <h2>Experience</h2>
+        <ul class="timeline">
+          {% for i in main_dict['EXPERIENCE'] %}
+          <li class="event">
+            <span class="duration">{{i['START_DATE']}} - {{i['END_DATE']}}</span>
+            <div class="event-content">
+              <h3>{{i['DESIGNATION']}}</h3>
+              <p><em>{{i['COMPANY']}}, {{i['LOCATION']}}</em></p>
+              <p>
+                Developed scalable web applications and led cross-functional teams to deliver high-quality products on time. Enhanced user experience and optimized backend performance, resulting in increased customer satisfaction and business growth.
+              </p>
+            </div>
           </li>
-          <li><a href="https://www.{{main_dict['ABOUT_ME'][0]['LINKEDIN']}}"
-              target="_blank">{{main_dict['ABOUT_ME'][0]['LINKEDIN']}}</a>
-            <img alt="" src="/static/images/linkedin-5-64.png">
-          </li>
-          <li><a href="https://{{main_dict['ABOUT_ME'][0]['GIT']}}"
-              target="_blank">{{main_dict['ABOUT_ME'][0]['GIT']}}</a>
-            <img alt="" src="/static/images/github-10-64.png">
-          </li>
-          <li><a href="https://www.{{main_dict['ABOUT_ME'][0]['LEETCODE']}}"
-              target="_blank">{{main_dict['ABOUT_ME'][0]['LEETCODE']}}</a>
-            <img alt="" src="/static/images/kaggle.png">
-          </li>
-          <li><a href="https://www.{{main_dict['ABOUT_ME'][0]['YOUTUBE']}}"
-              target="_blank">{{main_dict['ABOUT_ME'][0]['YOUTUBE']}}</a>
-            <img alt="" src="/static/images/kaggle.png">
-          </li>
+          {% endfor %}
         </ul>
       </section>
-
-      <section class="section1">
-        <h2>Why me ?</h2>
-        <section class="objectives">
-          <p>
-          <ol type="1">
-            {% for i in main_dict['PROFESSION'] %}
-            <li>{{i['DESCRIPTION']}}</li>
-            {% endfor %}
-          </ol>
-          </p>
-        </section>
-      </section>
-
-      <section class="certificates">
-        <h2>Certificates</h2>
-
-        {% for i in main_dict['CERTIFICATES'] %}
-
+      <section class="section fade-section" id="education">
+        <h2>Education</h2>
         <ul class="timeline">
+          {% for education in main_dict['EDUCATION'] %}
           <li class="event">
-            <span class="duration">From {{i['START_DATE']}} To {{i['END_DATE']}}</span>
-
-            <div class="content">
+            <span class="duration">{{education['START_DATE']}} - {{education['END_DATE']}}</span>
+            <div class="event-content">
+              <h3>{{education['DEGREE']}}</h3>
+              <p><em>{{education['UNIVERSITY']}}</em></p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section class="section fade-section" id="whyme">
+        <h2>Why Me?</h2>
+        <ol>
+          {% for i in main_dict['PROFESSION'] %}
+          <li>{{i['DESCRIPTION']}}</li>
+          {% endfor %}
+        </ol>
+      </section>
+      <section class="section fade-section" id="certificates">
+        <h2>Certificates</h2>
+        <ul class="timeline">
+          {% for i in main_dict['CERTIFICATES'] %}
+          <li class="event">
+            <span class="duration">{{i['START_DATE']}} - {{i['END_DATE']}}</span>
+            <div class="event-content">
               <h3>{{i['CERTIFICATE_NAME']}}</h3>
               <h3>{{i['ISSUER']}}</h3>
               <p>{{i['LOCATION']}}</p>
               <p>{{i['DETAILS']}}</p>
-              <p>
-                <a href="{{i['CERTIFICATE_LINK']}}" style="color:blue;" target="_blank">Certificate Link</a>
-              </p>
+              <p><a href="{{i['CERTIFICATE_LINK']}}" class="material-link" target="_blank">Certificate Link</a></p>
             </div>
           </li>
+          {% endfor %}
         </ul>
-        <br>
-        {% endfor %}
       </section>
-
-      <section class="skills">
-        <h2>Skills/Interests</h2>
-        <ul class="list-container">
-          <li>
+      <section class="section fade-section" id="skills">
+        <h2>Skills & Interests</h2>
+        <div class="skills-interests">
+          <div>
             <h3>Skills</h3>
-            <ol type="1">
+            <ol>
               {% for i in main_dict['SKILLS'] %}
               <li>{{i['SKILL_NAME']}}</li>
               {% endfor %}
             </ol>
-          </li>
-          <li>
+          </div>
+          <div>
             <h3>Interests</h3>
-            <ol type="1">
+            <ol>
               {% for i in main_dict['INTERESTS'] %}
               <li>{{i['INTEREST_NAME']}}</li>
               {% endfor %}
             </ol>
+          </div>
+        </div>
+      </section>
+      <section class="section fade-section" id="projects">
+        <h2>Projects</h2>
+        <ul class="timeline">
+          {% for i in main_dict['PROJECTS'] %}
+          <li class="event">
+            <span class="duration">{{i['START_DATE']}} - {{i['END_DATE']}}</span>
+            <div class="event-content">
+              <h3>{{i['PROJECT_NAME']}}</h3>
+              <p>
+                Designed and implemented innovative solutions using modern frameworks and cloud technologies. My projects focus on usability, performance, and maintainability, delivering real value to users and stakeholders.
+              </p>
+              {% if i['YOUTUBE_LINK'] != 'EMPTY' %}
+              <p><a href="{{i['YOUTUBE_LINK']}}" class="material-link" target="_blank">YouTube</a></p>
+              {% endif %}
+              {% if i['DEPLOYMENT_LINK'] != 'EMPTY' %}
+              <p><a href="{{i['DEPLOYMENT_LINK']}}" class="material-link" target="_blank">Live Demo</a></p>
+              {% endif %}
+              {% if i['GIT_LINK'] != 'EMPTY' %}
+              <p><a href="{{i['GIT_LINK']}}" class="material-link" target="_blank">GitHub</a></p>
+              {% endif %}
+            </div>
           </li>
+          {% endfor %}
         </ul>
       </section>
-    </div>
+    </main>
   </div>
-
-  <section class="project">
-    <h2>Projects</h2>
-    {% for i in main_dict['PROJECTS'] %}
-
-    <ul class="timeline">
-      <li class="event">
-        <span class="duration">From {{i['START_DATE']}} To {{i['END_DATE']}}</span>
-
-        <div class="content">
-          <h3>{{i['PROJECT_NAME']}}</h3>
-          <p>{{i['DETAILS']}}</p>
-
-          {% if i['YOUTUBE_LINK'] != 'EMPTY' %}
-          <p>
-            <a href="{{i['YOUTUBE_LINK']}}" style="color:blue;" target="_blank">Project
-              YouTube Link</a>
-          </p>
-          {% endif %}
-
-          {% if i['DEPLOYMENT_LINK'] != 'EMPTY' %}
-          <p>
-            <a href="{{i['DEPLOYMENT_LINK']}}" style="color:blue;" target="_blank">Project
-              Deployment Link</a>
-          </p>
-          {% endif %}
-
-          {% if i['GIT_LINK'] != 'EMPTY' %}
-          <p>
-            <a href="{{i['GIT_LINK']}}" style="color:blue;" target="_blank">Project
-              Git Link</a>
-          </p>
-          {% endif %}
-        </div>
-      </li>
-    </ul>
-    <br>
-    {% endfor %}
-  </section>
+  <script>
+    // Fade in/out animation on scroll
+    function handleFadeSections() {
+      const sections = document.querySelectorAll('.fade-section');
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < triggerBottom && rect.bottom > 0) {
+          section.classList.add('visible');
+          section.classList.remove('invisible');
+        } else {
+          section.classList.remove('visible');
+          section.classList.add('invisible');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleFadeSections);
+    window.addEventListener('DOMContentLoaded', handleFadeSections);
+  </script>
 </body>
 
 </html>
