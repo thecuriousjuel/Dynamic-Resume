@@ -7,6 +7,7 @@ Portfolio Figma-inspired layout and style
 @import url("certificates.css");
 @import url("experience.css");
 @import url("whyme.css");
+@import url("education.css");
 :root {
   --accent: #6c63ff;
   --accent-dark: #4b47b5;
