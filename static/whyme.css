@@ -9,10 +9,10 @@
   list-style: none;
 }
 .whyme-section .box-item {
-  background: var(--accent);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(108,99,255,0.18);
+  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
   padding: 1.2rem 1.2rem 1.2rem 1.2rem;
   font-size: 1rem;
   font-weight: 500;
@@ -25,9 +25,9 @@
   position: relative;
 }
 .whyme-section .box-item:hover, .whyme-section .box-item:focus {
-  background: var(--accent-dark);
+  background: var(--accent);
   color: #fff;
-  box-shadow: 0 8px 32px rgba(108,99,255,0.28);
+  box-shadow: 0 8px 32px rgba(108,99,255,0.18);
   transform: scale(1.04);
   z-index: 2;
 }

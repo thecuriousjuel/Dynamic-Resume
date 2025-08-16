@@ -53,6 +53,12 @@
         <span id="theme-toggle-icon">🌙</span>
       </button>
     </nav>
+    <!-- Sticky bottom navbar with scroll progress bar -->
+    <nav class="navbar-bottom">
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="scroll-progress-bar"></div>
+      </div>
+    </nav>
     <div class="main-layout">
       <aside class="sidebar">
         <img class="profile-img" alt="" src="/static/images/photo.jpg" />
@@ -188,15 +194,15 @@
             <h2>Experience</h2>
             <ul class="box-list">
               <li class="box-item">
-                <span class="duration">Oct-2019 - Mar-2021</span>
                 <h3>Project Engineer</h3>
-                <p><em>Wipro, Chennai</em></p>
+                <p><strong>Wipro, Chennai</strong></p>
+                <span class="duration">Oct-2019 - Mar-2021</span>
                 <p>Developed scalable web applications and led cross-functional teams to deliver high-quality products on time. Enhanced user experience and optimized backend performance, resulting in increased customer satisfaction and business growth.</p>
               </li>
               <li class="box-item">
-                <span class="duration">Jan-2022 - Aug-2022</span>
                 <h3>Analyst</h3>
-                <p><em>Deloitte, Bengaluru</em></p>
+                <p><strong>Deloitte, Bengaluru</strong></p>
+                <span class="duration">Jan-2022 - Aug-2022</span>
                 <p>Developed scalable web applications and led cross-functional teams to deliver high-quality products on time. Enhanced user experience and optimized backend performance, resulting in increased customer satisfaction and business growth.</p>
               </li>
             </ul>
@@ -205,9 +211,9 @@
             <h2>Education</h2>
             <ul class="box-list">
               <li class="box-item">
-                <span class="duration">Sep-2015 - May-2019</span>
                 <h3>B. Tech in Computer Science and Engineering</h3>
-                <p><em>M. S. Ramaiah University of Applied Sciences</em></p>
+                <p><strong>M. S. Ramaiah University of Applied Sciences</strong></p>
+                <span class="duration">Sep-2015 - May-2019</span>
               </li>
             </ul>
           </section>
@@ -216,9 +222,9 @@
           <h2>Certificates</h2>
           <ul class="box-list">
             <li class="box-item">
-              <span class="duration">Dec-2019 - Jan-2020</span>
               <h3>AI ML Certification</h3>
-              <h3>Wipro</h3>
+              <p><strong>Wipro</strong></p>
+              <span class="duration">Dec-2019 - Jan-2020</span>
               <p>Online</p>
               <p>Completed AI ML Certification from Wipro, which included Python Programming assignments and Machine Learning Assignments</p>
               <div class="certificate-link">
@@ -226,9 +232,9 @@
               </div>
             </li>
             <li class="box-item">
-              <span class="duration">Mar-2020 - Apr-2020</span>
               <h3>Machine Learning Certificate</h3>
-              <h3>365DataScience</h3>
+              <p><strong>365DataScience</strong></p>
+              <span class="duration">Mar-2020 - Apr-2020</span>
               <p>Online</p>
               <p>Completed Multiple certifications on Python, Statistics, Mathematics, Deep Learning etc.</p>
               <div class="certificate-link">
@@ -236,9 +242,9 @@
               </div>
             </li>
             <li class="box-item">
-              <span class="duration">Sep-2017 - Sep-2017</span>
               <h3>IoT using Arduino</h3>
-              <h3>Skify Labs</h3>
+              <p><strong>Skify Labs</strong></p>
+              <span class="duration">Sep-2017 - Sep-2017</span>
               <p>Bangalore</p>
               <p>Build an IOT Device using breadboard and arduino to measure the nearby temperature and upload the data using the wifi module to a server.</p>
               <div class="certificate-link">
@@ -246,9 +252,9 @@
               </div>
             </li>
             <li class="box-item">
-              <span class="duration">Feb-2021 - Feb-2022</span>
               <h3>MLDL iNeuron Certificate</h3>
-              <h3>iNeuron</h3>
+              <p><strong>iNeuron</strong></p>
+              <span class="duration">Feb-2021 - Feb-2022</span>
               <p>Online</p>
               <p>Completed an Intensive Machine Learning Course and have Built and Deployed Multiple Projects on the Cloud.</p>
               <div class="certificate-link">
@@ -410,6 +416,16 @@
       }
       window.addEventListener("scroll", handleFadeSections);
       window.addEventListener("DOMContentLoaded", handleFadeSections);
+      // Scroll progress bar logic
+      function updateScrollProgressBar() {
+        const scrollBar = document.getElementById('scroll-progress-bar');
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        scrollBar.style.width = percent + '%';
+      }
+      window.addEventListener('scroll', updateScrollProgressBar);
+      window.addEventListener('DOMContentLoaded', updateScrollProgressBar);
     </script>
   </body>
 </html>

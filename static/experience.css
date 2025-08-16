@@ -23,6 +23,8 @@
   text-align: left;
   margin-bottom: 0.5rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .experience-section .box-item:hover, .experience-section .box-item:focus {
   background: var(--accent);
@@ -30,4 +32,10 @@
   box-shadow: 0 8px 32px rgba(108,99,255,0.18), 0 2px 8px rgba(44,62,80,0.08);
   transform: scale(1.04);
   z-index: 2;
+}
+.experience-section .project-links, .experience-section .certificate-link {
+  margin-top: auto;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
 }

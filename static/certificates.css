@@ -23,6 +23,8 @@
   text-align: left;
   margin-bottom: 0.5rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .certificates-section .box-item:hover, .certificates-section .box-item:focus {
   background: var(--accent);
@@ -32,7 +34,7 @@
   z-index: 2;
 }
 .certificates-section .certificate-link {
-  margin-top: 0.7rem;
+  margin-top: auto;
   display: flex;
   gap: 0.7rem;
   flex-wrap: wrap;
