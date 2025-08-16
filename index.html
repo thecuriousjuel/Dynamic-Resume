@@ -37,7 +37,8 @@
 
 <body>
   <nav class="navbar">
-    <ul>
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Open navigation" title="Open navigation">☰</button>
+    <ul id="navbar-menu">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills & Interests</a></li>
       <li><a href="#whyme">Why Me?</a></li>
@@ -488,6 +489,30 @@
     window.addEventListener('DOMContentLoaded', function () {
       typeWhyMeLine();
     });
+    // Mobile navbar toggle logic
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const navbarMenu = document.getElementById('navbar-menu');
+    if (navbarToggle && navbarMenu) {
+      navbarToggle.addEventListener('click', function () {
+        navbarMenu.classList.toggle('open');
+      });
+      // Close sidebar when a link is clicked (for better UX)
+      navbarMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navbarMenu.classList.remove('open');
+        });
+      });
+      // Optional: close sidebar on outside click
+      document.addEventListener('click', function (e) {
+        if (
+          navbarMenu.classList.contains('open') &&
+          !navbarMenu.contains(e.target) &&
+          e.target !== navbarToggle
+        ) {
+          navbarMenu.classList.remove('open');
+        }
+      });
+    }
   </script>
 </body>
 
