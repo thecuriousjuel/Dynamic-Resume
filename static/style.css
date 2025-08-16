@@ -86,7 +86,7 @@ body {
   position: fixed;
   top: 1.5rem;
   right: 2rem;
-  z-index: 1000;
+  z-index: 2002; /* Increased z-index for dark mode toggle */
   background: var(--surface);
   color: var(--accent-dark);
   border: none;
