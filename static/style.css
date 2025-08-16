@@ -539,84 +539,28 @@ body[data-theme="dark"] .whyme-box {
   padding: 0;
   list-style: none;
 }
-<<<<<<< HEAD
 .box-item, .whyme-box, .experience-section .box-item, .certificates-section .box-item, .projects-section .box-item {
   background: var(--accent) !important;
   color: #fff !important;
   border-radius: 14px;
   box-shadow: 0 2px 12px rgba(108,99,255,0.18);
-  padding: 0.7rem 0.7rem 1.1rem 0.7rem;
-=======
-.box-item {
-  background: var(--surface);
-  color: var(--text);
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
-  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
->>>>>>> parent of fb35281 (UI looks consistent)
+  padding: 0.7rem 1rem 0.7rem 1rem;
   font-size: 1rem;
   font-weight: 500;
-  min-width: 260px;
-  max-width: 370px;
-  flex: 1 1 320px;
+  min-width: 180px;
+  max-width: 340px;
+  flex: 1 1 220px;
   transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
   text-align: left;
   margin-bottom: 0.5rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
-.box-item:hover, .box-item:focus {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 8px 32px rgba(108,99,255,0.18), 0 2px 8px rgba(44,62,80,0.08);
+.box-item:hover, .box-item:focus, .whyme-box:hover, .whyme-box:focus, .experience-section .box-item:hover, .certificates-section .box-item:hover, .projects-section .box-item:hover {
+  background: var(--accent-dark) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 32px rgba(108,99,255,0.28);
   transform: scale(1.04);
   z-index: 2;
-}
-.box-item .box-heading {
-  width: calc(100% + 1.4rem);
-  margin-left: -0.7rem;
-  margin-top: -0.7rem;
-  margin-bottom: 0.7rem;
-  padding: 0.7rem 1rem;
-  border-radius: 14px 14px 0 0;
-  background: #ffb300;
-  color: #232946;
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.box-item .org-row {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.98rem;
-  color: #ffe082;
-  font-weight: 600;
-}
-.box-item .org-row .org {
-  color: #fffde7;
-  font-weight: 700;
-  background: #1976d2;
-  border-radius: 6px;
-  padding: 0.1rem 0.6rem;
-  margin-right: 0.5rem;
-}
-.box-item .org-row .mode {
-  color: #fffde7;
-  background: #43a047;
-  border-radius: 6px;
-  padding: 0.1rem 0.6rem;
-}
-.box-item .org-row .location {
-  color: #fffde7;
-  background: #8e24aa;
-  border-radius: 6px;
-  padding: 0.1rem 0.6rem;
 }
 .box-item .project-links, .box-item .certificate-link {
   margin-top: 0.7rem;
@@ -625,26 +569,5 @@ body[data-theme="dark"] .whyme-box {
   flex-wrap: wrap;
 }
 .box-item .project-links a, .box-item .certificate-link a {
-  margin: 0 0.2rem 0 0;
-  border-radius: 6px;
-  font-weight: 600;
-  color: #fff !important;
-  background: #1976d2;
-  border: none;
-  padding: 0.4rem 1.1rem;
-  transition: background 0.2s, color 0.2s;
-  display: inline-block;
-}
-.box-item .project-links a:nth-child(2) {
-  background: #43a047;
-}
-.box-item .project-links a:nth-child(3) {
-  background: #8e24aa;
-}
-.box-item .certificate-link a {
-  background: #ff7043;
-}
-.box-item .project-links a:hover, .box-item .certificate-link a:hover {
-  background: #232946;
-  color: #fff !important;
+  margin: 0;
 }
