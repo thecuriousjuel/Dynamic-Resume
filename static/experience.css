@@ -144,6 +144,17 @@
   z-index: 2;
 }
 
+.timeline-content:hover .exp-org,
+.timeline-content:focus .exp-org {
+  color: #fff;
+  background: var(--accent-dark);
+}
+.timeline-content:hover .exp-mode,
+.timeline-content:focus .exp-mode {
+  color: #fff;
+  background: var(--accent);
+}
+
 @media (max-width: 700px) {
   .timeline-container {
     padding-left: 18px;
