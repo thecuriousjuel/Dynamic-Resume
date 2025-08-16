@@ -38,11 +38,11 @@
     <nav class="navbar">
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills & Interests</a></li>
-        <li><a href="#whyme">Why Me?</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#whyme">Why Me?</a></li>
         <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#skills">Skills & Interests</a></li>
         <li><a href="#projects">Projects</a></li>
       </ul>
       <button
@@ -58,7 +58,7 @@
         <img class="profile-img" alt="" src="/static/images/photo.jpg" />
         <h1>Biswajit Basak</h1>
         <div class="subtitle">
-          Security Engineer | Delta Airlines (DTH) | Bangalore, India
+          Computer Science Graduate | AI ML Enthusiast | Pythoneer
         </div>
         <ul class="contact-list">
           <li>
@@ -120,12 +120,14 @@
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" title="Python" />
                   </div>
                   <div class="skill-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" title="AWS" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Amazon_Web_Services_Logo.svg" alt="AWS" title="AWS" />
                   </div>
                   <div class="skill-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" title="TypeScript" />
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" title="MySQL" />
                   </div>
-                
+                  <div class="skill-box">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" title="Flask" />
+                  </div>
                   <div class="skill-box">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML" title="HTML" />
                   </div>
@@ -142,15 +144,8 @@
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="Git/Github" title="Git/Github" />
                   </div>
                   <div class="skill-box">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" title="MySQL" />
-                  </div>
-                  <div class="skill-box">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" title="Flask" />
-                  </div>
-                  <div class="skill-box">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux Familiarity" title="Linux Familiarity" />
                   </div>
-                  
                 </div>
               </div>
               <div>
@@ -394,7 +389,7 @@
       </main>
     </div>
     <script>
-      // Smooth scroll for navbar links and fix offset for fixed navbar
+      // Smooth scroll for navbar links
       document.querySelectorAll(".navbar a").forEach((link) => {
         link.addEventListener("click", function (e) {
           const href = this.getAttribute("href");
@@ -402,9 +397,7 @@
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-              const navHeight = document.querySelector('.navbar').offsetHeight;
-              const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 10;
-              window.scrollTo({ top, behavior: "smooth" });
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           }
         });
