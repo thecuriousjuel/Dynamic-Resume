@@ -39,3 +39,38 @@
   gap: 0.7rem;
   flex-wrap: wrap;
 }
+.exp-org-row {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  transition: color 0.2s, background 0.2s;
+}
+.exp-org {
+  color: var(--accent-dark);
+  background: transparent;
+  border-radius: 4px;
+  padding: 0 0.3em;
+  transition: color 0.2s, background 0.2s;
+}
+.exp-mode {
+  color: var(--text-secondary);
+  font-style: italic;
+  background: transparent;
+  border-radius: 4px;
+  padding: 0 0.3em;
+  transition: color 0.2s, background 0.2s;
+}
+.experience-section .box-item:hover .exp-org {
+  color: #fff;
+  background: var(--accent-dark);
+}
+.experience-section .box-item:hover .exp-mode {
+  color: #fff;
+  background: var(--accent);
+}
+.experience-section .box-item:hover .exp-org-row {
+  color: #fff;
+}

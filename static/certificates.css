@@ -42,3 +42,38 @@
 .certificates-section .certificate-link a {
   margin: 0;
 }
+.cert-org-row {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  transition: color 0.2s, background 0.2s;
+}
+.cert-org {
+  color: var(--accent-dark);
+  background: transparent;
+  border-radius: 4px;
+  padding: 0 0.3em;
+  transition: color 0.2s, background 0.2s;
+}
+.cert-mode {
+  color: var(--text-secondary);
+  font-style: italic;
+  background: transparent;
+  border-radius: 4px;
+  padding: 0 0.3em;
+  transition: color 0.2s, background 0.2s;
+}
+.certificates-section .box-item:hover .cert-org {
+  color: #fff;
+  background: var(--accent-dark);
+}
+.certificates-section .box-item:hover .cert-mode {
+  color: #fff;
+  background: var(--accent);
+}
+.certificates-section .box-item:hover .cert-org-row {
+  color: #fff;
+}

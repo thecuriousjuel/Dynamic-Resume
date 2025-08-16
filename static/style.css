@@ -53,6 +53,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  /* Ensure stacking context for progress bar */
+  flex-direction: column;
 }
 .navbar ul {
   display: flex;
@@ -514,6 +517,11 @@ body[data-theme="dark"] .whyme-box {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-dark);
 }
+/* Remove horizontal scrollbar at the bottom */
+::-webkit-scrollbar:horizontal {
+  display: none;
+  height: 0 !important;
+}
 
 /* Layout for new section alignment */
 .sections-row {
@@ -577,23 +585,18 @@ body[data-theme="dark"] .whyme-box {
   flex-wrap: wrap;
 }
 
-/* Sticky bottom navbar and animated scroll progress bar */
-.navbar-bottom {
-  position: fixed;
+/* Animated scroll progress bar below navbar */
+.progress-bar-container {
+  position: absolute;
   left: 0;
   bottom: 0;
-  width: 100vw;
-  height: 8px;
-  background: transparent;
-  z-index: 2000;
-  pointer-events: none;
-}
-.progress-bar-container {
-  width: 100vw;
+  width: 100%;
   height: 8px;
   background: rgba(44,62,80,0.08);
-  border-radius: 4px 4px 0 0;
+  border-radius: 0 0 4px 4px;
   overflow: hidden;
+  z-index: 1100;
+  margin-bottom: 0;
 }
 .progress-bar {
   height: 100%;
@@ -602,7 +605,7 @@ body[data-theme="dark"] .whyme-box {
   transition: width 0.25s cubic-bezier(.4,0,.2,1);
 }
 @media (max-width: 600px) {
-  .navbar-bottom, .progress-bar-container {
+  .progress-bar-container {
     height: 5px;
   }
 }
