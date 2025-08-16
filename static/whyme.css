@@ -1,0 +1,84 @@
+/* Why Me section specific styles */
+.whyme-section .box-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.whyme-section .box-item {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  min-width: 220px;
+  max-width: 370px;
+  flex: 1 1 260px;
+  transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.whyme-section .box-item:hover, .whyme-section .box-item:focus {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(108,99,255,0.18);
+  transform: scale(1.04);
+  z-index: 2;
+}
+.whyme-typing-box {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  min-height: 2.5em;
+  margin-bottom: 1.2rem;
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow-x: auto;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+.whyme-label {
+  font-weight: bold;
+  color: var(--accent);
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.2em;
+}
+.whyme-typing-effect-row {
+  display: block;
+  width: 100%;
+  min-height: 1.5em;
+}
+.whyme-cursor {
+  display: inline-block;
+  width: 1ch;
+  color: var(--accent);
+  animation: blink 1s steps(1) infinite;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@media (max-width: 700px) {
+  .whyme-typing-box {
+    font-size: 1rem;
+    padding: 0.8rem 0.7rem;
+    width: 100%;
+    max-width: 100%;
+  }
+}

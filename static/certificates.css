@@ -1,0 +1,79 @@
+/* Certificates section specific styles */
+.certificates-section .box-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.certificates-section .box-item {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(108,99,255,0.10);
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  min-width: 260px;
+  max-width: 370px;
+  flex: 1 1 320px;
+  transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.certificates-section .box-item:hover, .certificates-section .box-item:focus {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(108,99,255,0.18), 0 2px 8px rgba(44,62,80,0.08);
+  transform: scale(1.04);
+  z-index: 2;
+}
+.certificates-section .certificate-link {
+  margin-top: auto;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.certificates-section .certificate-link a {
+  margin: 0;
+}
+.cert-org-row {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  transition: color 0.2s, background 0.2s;
+}
+.cert-org {
+  color: var(--accent-dark);
+  background: transparent;
+  border-radius: 4px;
+  padding: 0 0.3em;
+  transition: color 0.2s, background 0.2s;
+}
+.cert-mode {
+  color: var(--text-secondary);
+  font-style: italic;
+  background: transparent;
+  border-radius: 4px;
+  padding: 0 0.3em;
+  transition: color 0.2s, background 0.2s;
+}
+.certificates-section .box-item:hover .cert-org {
+  color: #fff;
+  background: var(--accent-dark);
+}
+.certificates-section .box-item:hover .cert-mode {
+  color: #fff;
+  background: var(--accent);
+}
+.certificates-section .box-item:hover .cert-org-row {
+  color: #fff;
+}
