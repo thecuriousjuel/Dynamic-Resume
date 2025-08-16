@@ -41,8 +41,7 @@
   color: var(--accent-dark);
   min-height: 2.5em;
   margin-bottom: 1.2rem;
-  display: flex;
-  align-items: center;
+  display: block;
   width: 100%;
   position: relative;
   overflow-x: auto;
@@ -55,6 +54,13 @@
   color: var(--accent);
   font-size: 1.1em;
   letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.2em;
+}
+.whyme-typing-effect-row {
+  display: block;
+  width: 100%;
+  min-height: 1.5em;
 }
 .whyme-cursor {
   display: inline-block;
