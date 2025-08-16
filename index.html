@@ -84,6 +84,11 @@
       </ul>
     </aside>
     <main class="content">
+      <div class="whyme-typing-box fade-section" id="whyme">
+  <span class="whyme-label">Why Me?:&nbsp;</span>
+  <span id="whyme-typing"></span>
+  <span class="whyme-cursor">|</span>
+</div>
       <div class="sections-row">
         <section class="section fade-section" id="about">
           <h2>About Me</h2>
@@ -170,18 +175,6 @@
           </div>
         </section>
       </div>
-      <section class="section whyme-section fade-section" id="whyme">
-        <h2>Why Me?</h2>
-        <ul class="box-list">
-          <li class="box-item">Proven track record of delivering high-quality solutions on time and exceeding
-            expectations.</li>
-          <li class="box-item">Strong analytical and problem-solving skills, with a focus on innovation and efficiency.
-          </li>
-          <li class="box-item">Excellent communication and collaboration abilities, thriving in team environments.</li>
-          <li class="box-item">Continuous learner, always adapting to new technologies and industry trends.</li>
-          <li class="box-item">Dedicated to creating value for clients and stakeholders through impactful work.</li>
-        </ul>
-      </section>
       <div class="sections-row">
         <section class="section experience-section fade-section" id="experience">
           <h2>Experience</h2>
@@ -461,7 +454,40 @@
     }
     window.addEventListener('scroll', updateScrollProgressBar);
     window.addEventListener('DOMContentLoaded', updateScrollProgressBar);
+    // Typing effect for Why Me section
+    const whymeLines = [
+      "Proven track record of delivering high-quality solutions on time and exceeding expectations.",
+      "Strong analytical and problem-solving skills, with a focus on innovation and efficiency.",
+      "Excellent communication and collaboration abilities, thriving in team environments.",
+      "Continuous learner, always adapting to new technologies and industry trends.",
+      "Dedicated to creating value for clients and stakeholders through impactful work."
+    ];
+    let whymeIndex = 0;
+    let charIndex = 0;
+    let typingTimeout, pauseTimeout;
+    const typingSpeed = 30; // ms per character
+    const pauseBetweenLines = 7000; // ms
+    function typeWhyMeLine() {
+      const typingSpan = document.getElementById('whyme-typing');
+      if (!typingSpan) return;
+      const line = whymeLines[whymeIndex];
+      if (charIndex <= line.length) {
+        typingSpan.textContent = line.slice(0, charIndex);
+        charIndex++;
+        typingTimeout = setTimeout(typeWhyMeLine, typingSpeed);
+      } else {
+        pauseTimeout = setTimeout(() => {
+          charIndex = 0;
+          whymeIndex = (whymeIndex + 1) % whymeLines.length;
+          typeWhyMeLine();
+        }, pauseBetweenLines);
+      }
+    }
+    window.addEventListener('DOMContentLoaded', function () {
+      typeWhyMeLine();
+    });
   </script>
 </body>
 
 </html>
+``` 
