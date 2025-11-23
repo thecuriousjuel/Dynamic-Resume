@@ -56,12 +56,13 @@ body {
   z-index: 1001;
   background: var(--surface);
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   min-height: 60px;
+  gap: 1rem;
   /* Ensure stacking context for progress bar */
 }
 
@@ -69,10 +70,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   list-style: none;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 .navbar li {
@@ -162,24 +164,40 @@ body.theme-animating .theme-toggle::after {
 }
 
 @media (max-width: 900px) {
-  .navbar ul {
-    gap: 1.2rem;
-  }
-
-  .navbar a {
-    font-size: 1rem;
-    padding: 0.4rem 0.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar ul {
+  .navbar {
     gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbar ul {
+    gap: 0.8rem;
   }
 
   .navbar a {
     font-size: 0.95rem;
-    padding: 0.3rem 0.3rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    gap: 0.3rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .navbar ul {
+    gap: 0.4rem;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.4rem;
   }
 }
 
