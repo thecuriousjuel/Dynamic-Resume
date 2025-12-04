@@ -2,7 +2,7 @@
 <path d="M1264.68 155.842C1337.38 214.619 1440 186.295 1440 186.295V0H0V732.528C0 732.528 107.821 757.942 196.536 706.721C285.251 655.5 319.982 538.742 432.736 507.984C545.49 477.226 650.141 579.753 759.5 549.5C868.859 519.247 889.688 387.5 997.5 357.5C1105.31 327.5 1191.98 97.0652 1264.68 155.842Z" fill="url(#paint0_linear)"/>
 <defs>
 <linearGradient id="paint0_linear" x1="720" y1="0" x2="720" y2="732.528" gradientUnits="userSpaceOnUse">
-<stop stop-color="#6C63FF" stop-opacity="0.15"/>
+<stop stop-color="#6C63FF" stop-opacity="0.4"/>
 <stop offset="1" stop-color="#6C63FF" stop-opacity="0"/>
 </linearGradient>
 </defs>
