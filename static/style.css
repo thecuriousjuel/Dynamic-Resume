@@ -12,31 +12,40 @@ Portfolio Figma-inspired layout and style
 :root {
   --accent: #6c63ff;
   --accent-dark: #4b47b5;
-  --background: #f7f8fa;
-  --surface: #fff;
-  --sidebar-bg: #232946;
+  --background: #f0f2f5;
+  --surface: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --sidebar-bg: rgba(35, 41, 70, 0.95);
   --sidebar-text: #fff;
   --text: #232946;
-  --text-secondary: #6e6e6e;
+  --text-secondary: #5e6472;
   --border-radius: 24px;
-  --shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+  --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
   --transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+  --glass-blur: blur(12px);
 }
 
 body[data-theme="dark"] {
   --accent: #a9a6ff;
   --accent-dark: #6c63ff;
-  --background: #181a1b;
-  --surface: #232946;
-  --sidebar-bg: #181a1b;
+  --background: #0f111a;
+  --surface: rgba(35, 41, 70, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --sidebar-bg: rgba(24, 26, 27, 0.95);
   --sidebar-text: #fff;
-  --text: #f7f8fa;
+  --text: #eef1f5;
   --text-secondary: #b0b0b0;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 html,
 body {
   background: var(--background);
+  background-image: url("images/background-shape.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+  background-attachment: fixed;
   color: var(--text);
   font-family: "Titillium Web", sans-serif;
   min-height: 100vh;
@@ -46,6 +55,7 @@ body {
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -55,15 +65,19 @@ body {
   left: 0;
   z-index: 1001;
   background: var(--surface);
-  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
   padding: 0.75rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  min-height: 60px;
+  min-height: 70px;
+  /* Fixed height for alignment */
   gap: 1rem;
-  /* Ensure stacking context for progress bar */
+  box-sizing: border-box;
 }
 
 .navbar ul {
@@ -204,9 +218,9 @@ body.theme-animating .theme-toggle::after {
 .main-layout {
   display: flex;
   min-height: 100vh;
-  margin-top: 60px;
+  margin-top: 70px;
   /* Match navbar min-height */
-  background: var(--background);
+  background: transparent;
 }
 
 body[data-theme="dark"] .navbar {
@@ -220,6 +234,8 @@ body[data-theme="dark"] .main-layout {
 
 .sidebar {
   background: var(--sidebar-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: var(--sidebar-text);
   width: 320px;
   min-width: 260px;
@@ -233,7 +249,7 @@ body[data-theme="dark"] .main-layout {
   box-shadow: var(--shadow);
   position: relative;
   z-index: 2;
-  background-image: linear-gradient(135deg, var(--sidebar-bg) 80%, var(--accent) 100%);
+  border-right: 1px solid var(--glass-border);
 }
 
 body[data-theme="dark"] .sidebar {
@@ -390,6 +406,9 @@ body[data-theme="dark"] .sidebar {
 
 .section {
   background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 2rem 2rem 1.5rem 2rem;
@@ -402,15 +421,19 @@ body[data-theme="dark"] .sidebar {
 }
 
 .section:not(.profile-section):hover {
-  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.18), 0 2px 8px rgba(44, 62, 80, 0.08);
-  transform: scale(1.015);
-  background: linear-gradient(120deg, var(--surface) 80%, var(--accent) 100%);
+  box-shadow: 0 12px 40px rgba(108, 99, 255, 0.22), 0 4px 12px rgba(44, 62, 80, 0.12);
+  transform: translateY(-4px) scale(1.015);
+  background: linear-gradient(135deg, var(--surface) 60%, rgba(108, 99, 255, 0.05) 100%);
   z-index: 2;
 }
 
 .section h2 {
-  color: var(--accent);
-  font-size: 1.3rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 1.2rem;
   border: none;
   padding: 0;
@@ -568,7 +591,7 @@ body[data-theme="dark"] .whyme-box {
 
 @media (max-width: 600px) {
   .main-layout {
-    margin-top: 60px;
+    margin-top: 70px;
     /* Match navbar height on mobile */
   }
 
@@ -648,7 +671,7 @@ body[data-theme="dark"] .whyme-box {
 
 .sections-row>.section {
   flex: 1 1 0;
-  min-width: 320px;
+  min-width: 280px;
 }
 
 @media (max-width: 900px) {
@@ -674,9 +697,12 @@ body[data-theme="dark"] .whyme-box {
 .certificates-section .box-item,
 .projects-section .box-item {
   background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   color: var(--text);
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(108, 99, 255, 0.10);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   padding: 0.7rem 1rem 0.7rem 1rem;
   font-size: 1rem;
   font-weight: 500;
@@ -696,11 +722,17 @@ body[data-theme="dark"] .whyme-box {
 .experience-section .box-item:hover,
 .certificates-section .box-item:hover,
 .projects-section .box-item:hover {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.18);
-  transform: scale(1.04);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  box-shadow: 0 12px 32px rgba(108, 99, 255, 0.25);
+  transform: translateY(-5px);
   z-index: 2;
+}
+
+.box-item:hover h3,
+.box-item:focus h3 {
+  color: var(--accent);
 }
 
 /* Sticky links at bottom of box */
@@ -750,7 +782,10 @@ body[data-theme="dark"] .whyme-box {
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px;
+    /* Fixed height for mobile */
     z-index: 1001;
+    box-sizing: border-box;
   }
 
   .navbar ul {
@@ -760,8 +795,10 @@ body[data-theme="dark"] .whyme-box {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 220px;
+    width: 260px;
     background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     box-shadow: 2px 0 12px rgba(44, 62, 80, 0.10);
     padding-top: 4.5rem;
     gap: 1.5rem;
@@ -794,7 +831,7 @@ body[data-theme="dark"] .whyme-box {
   .progress-bar-container {
     left: 0;
     right: 0;
-    width: 100vw;
+    width: 100%;
   }
 }
 
