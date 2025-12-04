@@ -38,6 +38,11 @@ body[data-theme="dark"] {
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+body[data-theme="dark"] {
+  background-blend-mode: overlay;
+  /* Blend SVG with dark background */
+}
+
 html,
 body {
   background: var(--background);
@@ -160,10 +165,7 @@ body.theme-animating .theme-toggle::after {
   transition: width 0.5s cubic-bezier(.4, 0, .2, 1), height 0.5s cubic-bezier(.4, 0, .2, 1);
 }
 
-.navbar-left {
-  display: flex;
-  align-items: center;
-}
+/* Removed unused .navbar-left */
 
 @media (max-width: 600px) {
   .theme-toggle {
@@ -217,6 +219,8 @@ body.theme-animating .theme-toggle::after {
 
 .main-layout {
   display: flex;
+  flex-direction: column;
+  /* Stack sidebar (hero) and content vertically */
   min-height: 100vh;
   margin-top: 70px;
   /* Match navbar min-height */
@@ -237,67 +241,71 @@ body[data-theme="dark"] .main-layout {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   color: var(--sidebar-text);
-  width: 320px;
-  min-width: 260px;
-  max-width: 340px;
+  width: 100%;
+  /* Full width */
+  min-width: 0;
+  max-width: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  /* Horizontal layout for hero */
   align-items: center;
-  padding: 3rem 2rem 2rem 2rem;
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 2rem;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow);
   position: relative;
   z-index: 2;
-  border-right: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  border-right: none;
+  box-sizing: border-box;
+  /* Ensure padding doesn't affect width/radius */
 }
 
-body[data-theme="dark"] .sidebar {
-  background-image: linear-gradient(135deg, #232946 80%, #6c63ff 100%);
-}
+/* Removed unused linear gradient for sidebar */
 
 @media (max-width: 900px) {
-  .main-layout {
+  .sidebar {
     flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    text-align: center;
   }
 
-  .sidebar {
-    width: 100%;
-    min-width: 0;
-    max-width: none;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    flex-direction: row;
-    justify-content: flex-start;
+  .profile-info {
     align-items: center;
-    padding: 1.5rem 1rem;
-    box-shadow: none;
+    text-align: center;
   }
-}
 
-@media (max-width: 600px) {
-  .sidebar {
-    padding: 1rem 0.5rem;
-    border-radius: 0;
-    flex-direction: column;
-    align-items: center;
+  .sidebar .contact-list {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
 .profile-img {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid var(--accent);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+  /* Remove bottom margin for horizontal layout */
   box-shadow: 0 2px 8px rgba(108, 99, 255, 0.15);
   background: #fff;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .sidebar h1 {
   font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   color: var(--sidebar-text);
   letter-spacing: 0.02em;
 }
@@ -305,18 +313,18 @@ body[data-theme="dark"] .sidebar {
 .sidebar .subtitle {
   font-size: 1.1rem;
   color: var(--accent);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   font-weight: 500;
 }
 
 .sidebar .contact-list {
-  width: 100%;
-  margin: 2rem 0 0 0;
+  width: auto;
+  margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem 0.5rem;
-  justify-items: center;
+  display: flex;
+  /* Horizontal list */
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 @media (max-width: 600px) {
@@ -386,10 +394,16 @@ body[data-theme="dark"] .sidebar {
 
 .content {
   flex: 1;
-  padding: 3rem 4rem;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  /* Limit max width for readability */
+  margin: 0 auto;
+  /* Center content */
+  box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
