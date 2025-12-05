@@ -110,10 +110,21 @@ if (navbarToggle && navbarMenu) {
 // Custom cursor follower logic
 const cursorDot = document.querySelector('.cursor-dot');
 if (cursorDot) {
-    document.addEventListener('mousemove', (e) => {
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
+    // Only show/move cursor if using mouse or pen
+    document.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'mouse' || e.pointerType === 'pen') {
+            cursorDot.style.display = 'block';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        } else {
+            cursorDot.style.display = 'none';
+        }
     });
+
+    // Hide cursor immediately on any touch interaction
+    document.addEventListener('touchstart', () => {
+        cursorDot.style.display = 'none';
+    }, { passive: true });
 
     // Optional: Add effect on hoverable elements
     document.querySelectorAll('a, button, .box-item').forEach(el => {
