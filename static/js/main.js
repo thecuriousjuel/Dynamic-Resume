@@ -106,3 +106,24 @@ if (navbarToggle && navbarMenu) {
         }
     });
 }
+
+// Custom cursor follower logic
+const cursorDot = document.querySelector('.cursor-dot');
+if (cursorDot) {
+    document.addEventListener('mousemove', (e) => {
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+    });
+
+    // Optional: Add effect on hoverable elements
+    document.querySelectorAll('a, button, .box-item').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            cursorDot.style.opacity = '0.8';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursorDot.style.opacity = '1';
+        });
+    });
+}
