@@ -28,6 +28,10 @@
   flex-direction: column;
 }
 
+.certificates-section .box-item p {
+  text-align: justify;
+}
+
 .certificates-section .box-item:hover,
 .certificates-section .box-item:focus {
   background: var(--accent);

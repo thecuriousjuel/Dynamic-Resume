@@ -28,6 +28,10 @@
   flex-direction: column;
 }
 
+.projects-section .box-item p {
+  text-align: justify;
+}
+
 .projects-section .box-item:hover,
 .projects-section .box-item:focus {
   background: var(--accent);

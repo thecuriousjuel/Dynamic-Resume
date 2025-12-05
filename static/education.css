@@ -63,6 +63,10 @@
   text-align: left;
 }
 
+#education .box-item p {
+  text-align: justify;
+}
+
 #education .box-item:hover,
 #education .box-item:focus {
   background: var(--accent);
