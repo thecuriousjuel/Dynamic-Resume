@@ -769,3 +769,25 @@ body[data-theme="dark"] .main-layout {
     display: none;
   }
 }
+
+/* Custom Cursor Dot */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+@media (hover: none) {
+  .cursor-dot {
+    display: none;
+  }
+}
