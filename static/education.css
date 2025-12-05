@@ -8,6 +8,7 @@
   font-weight: 600;
   transition: color 0.2s, background 0.2s;
 }
+
 #education .exp-org {
   color: var(--accent-dark);
   background: transparent;
@@ -15,6 +16,7 @@
   padding: 0 0.3em;
   transition: color 0.2s, background 0.2s;
 }
+
 #education .exp-mode {
   color: var(--text-secondary);
   font-style: italic;
@@ -23,14 +25,17 @@
   padding: 0 0.3em;
   transition: color 0.2s, background 0.2s;
 }
+
 #education .box-item:hover .exp-org {
   color: #fff;
   background: var(--accent-dark);
 }
+
 #education .box-item:hover .exp-mode {
   color: #fff;
   background: var(--accent);
 }
+
 #education .box-item:hover .exp-org-row {
   color: #fff;
 }
@@ -38,6 +43,7 @@
 #education .box-list {
   gap: 0;
 }
+
 #education .box-item {
   padding: 1.2rem 1.2rem 1.2rem 1.2rem;
   min-width: 60px;
@@ -56,6 +62,7 @@
   transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
   text-align: left;
 }
+
 #education .box-item:hover,
 #education .box-item:focus {
   background: var(--accent);
@@ -64,4 +71,8 @@
     0 2px 8px rgba(44, 62, 80, 0.08);
   transform: scale(1.04);
   z-index: 2;
+}
+
+#education .box-item:hover h3 {
+  color: #fff;
 }
